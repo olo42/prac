@@ -1,2 +1,2 @@
 # prac
-A pratice planner
+A practice planner
