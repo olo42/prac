@@ -11,6 +11,7 @@ namespace com.github.olo42.prac.core
       var appointment = new Appointment(timeFrame, resource);
 
       calendar.Add(appointment);
+      resource.Block(timeFrame);
     }
   }
 }
