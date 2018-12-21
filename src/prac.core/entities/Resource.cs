@@ -1,3 +1,7 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace com.github.olo42.prac.core.entities
 {
   public class Resource
@@ -6,6 +10,6 @@ namespace com.github.olo42.prac.core.entities
     {
       this.Name = name;
     }
-  public string Name { get; set; }
+    public string Name { get; set; }
   }
 }

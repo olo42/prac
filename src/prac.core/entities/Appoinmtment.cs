@@ -2,17 +2,15 @@ using System;
 
 namespace com.github.olo42.prac.core.entities
 {
-  public class Appoinmtment
+  public class Appointment
   {
-    public Appoinmtment(DateTime startDate, DateTime endDate, Resource resource)
+    public Appointment(TimeFrame timeFrame, Resource resource)
     {
-      this.StartDate = startDate;
-      this.EndDate = endDate;
+      this.TimeFrame = timeFrame;
       this.Resource = resource;
 
     }
-    public DateTime StartDate { get; set; }
-    public DateTime EndDate { get; set; }
-    public Resource Resource { get; set; }
+    public Resource Resource { get; }
+    public TimeFrame TimeFrame { get; }
   }
 }
