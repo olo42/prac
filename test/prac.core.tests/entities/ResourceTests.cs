@@ -17,8 +17,8 @@ namespace prac.core.tests.entities
       );
 
       var timeFrameToCheck = new TimeFrame(
-        new DateTime(2018, 1, 1, 10, 0, 0),
-        new DateTime(2018, 1, 1, 16, 0, 0)
+        new DateTime(2018, 2, 2, 10, 0, 0),
+        new DateTime(2018, 2, 2, 16, 0, 0)
       );
       resource.Block(timeFrameToBlock);
 
@@ -33,9 +33,15 @@ namespace prac.core.tests.entities
         new DateTime(2018, 1, 1, 10, 0, 0),
         new DateTime(2018, 1, 1, 16, 0, 0)
       );
+
+       var timeFrameToCheck = new TimeFrame(
+        new DateTime(2018, 1, 1, 10, 0, 0),
+        new DateTime(2018, 1, 1, 16, 0, 0)
+      );
+
       resource.Block(timeFrame);
 
-      Assert.That(resource.IsBlocked(timeFrame), Is.True);
+      Assert.That(resource.IsBlocked(timeFrameToCheck), Is.True);
     }
   }
 }

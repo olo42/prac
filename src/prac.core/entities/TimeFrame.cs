@@ -2,7 +2,7 @@ using System;
 
 namespace prac.core.entities
 {
-  public class TimeFrame
+  public class TimeFrame : IEquatable<TimeFrame> 
   {
     public TimeFrame(DateTime startDate, DateTime endDate)
     {
@@ -13,5 +13,11 @@ namespace prac.core.entities
     public DateTime Start { get; }
 
     public DateTime End { get; }
+
+    public bool Equals(TimeFrame other)
+    {
+      return this.Start == other.Start
+        && this.End == other.End;
+    }
   }
 }
