@@ -12,5 +12,19 @@ namespace com.github.olo42.prac.core.entities
     }
     public Resource Resource { get; }
     public TimeFrame TimeFrame { get; }
+    public DateTime Start
+    {
+      get
+      {
+        return this.TimeFrame.Start;
+      }
+    }
+    public DateTime End
+    {
+      get
+      {
+        return this.TimeFrame.End;
+      }
+    }
   }
 }
