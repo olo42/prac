@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using com.github.olo42.prac.core.entities;
+using prac.core.entities;
 
-namespace com.github.olo42.prac.core
+namespace prac.core
 {
   public static class Scheduler
   {

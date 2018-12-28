@@ -1,11 +1,11 @@
-using NUnit.Framework;
-using com.github.olo42.prac.core;
-using System.Linq;
 using System;
-using com.github.olo42.prac.core.entities;
 using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework;
+using prac.core;
+using prac.core.entities;
 
-namespace com.github.olo42.prac.core.tests
+namespace prac.core.tests
 {
   public class SchedulerTests
   {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace com.github.olo42.prac.core.entities
+namespace prac.core.entities
 {
   public class Calendar
   {
