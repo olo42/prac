@@ -12,49 +12,49 @@ namespace prac.core.tests.entities
     public void IsAvailable()
     {
       var resource = new Resource("Trainig location");
-      var timeFrameToBlock = new TimeFrame(
+      var dateTimeRangeToBlock = new DateTimeRange(
         new DateTime(2018, 1, 1, 10, 0, 0),
         new DateTime(2018, 1, 1, 16, 0, 0)
       );
 
-      var timeFrameToCheck = new TimeFrame(
+      var dateTimeRangeToCheck = new DateTimeRange(
         new DateTime(2018, 2, 2, 10, 0, 0),
         new DateTime(2018, 2, 2, 16, 0, 0)
       );
-      resource.Block(timeFrameToBlock);
+      resource.Block(dateTimeRangeToBlock);
 
-      Assert.That(resource.IsBlocked(timeFrameToCheck), Is.False);
+      Assert.That(resource.IsBlocked(dateTimeRangeToCheck), Is.False);
     }
 
     [Test]
     public void IsBlocked()
     {
       var resource = new Resource("Trainig location");
-      var timeFrame = new TimeFrame(
+      var dateTimeRange = new DateTimeRange(
         new DateTime(2018, 1, 1, 10, 0, 0),
         new DateTime(2018, 1, 1, 16, 0, 0)
       );
 
-      var timeFrameToCheck = new TimeFrame(
+      var dateTimeRangeToCheck = new DateTimeRange(
         new DateTime(2018, 1, 1, 10, 0, 0),
         new DateTime(2018, 1, 1, 16, 0, 0)
       );
 
-      resource.Block(timeFrame);
+      resource.Block(dateTimeRange);
 
-      Assert.That(resource.IsBlocked(timeFrameToCheck), Is.True);
+      Assert.That(resource.IsBlocked(dateTimeRangeToCheck), Is.True);
     }
 
     [Test]
     public void Bookings_count()
     {
       var resource = new Resource("Bartelsdorf");
-      var timeFrame = new TimeFrame(
+      var dateTimeRange = new DateTimeRange(
         new DateTime(2018, 1, 1, 18, 0, 0),
         new DateTime(2018, 1, 1, 22, 0, 0)
       );
 
-      resource.Book(timeFrame);
+      resource.Book(dateTimeRange);
 
       Assert.That(resource.BookingsCount, Is.EqualTo(1));
     }
@@ -63,14 +63,14 @@ namespace prac.core.tests.entities
     public void Booking_blocks()
     {
       var resource = new Resource("Bartelsdorf");
-      var timeFrame = new TimeFrame(
+      var dateTimeRange = new DateTimeRange(
         new DateTime(2018, 1, 1, 18, 0, 0),
         new DateTime(2018, 1, 1, 22, 0, 0)
       );
 
-      resource.Book(timeFrame);
+      resource.Book(dateTimeRange);
 
-      Assert.That(resource.IsBlocked(timeFrame), Is.True);
+      Assert.That(resource.IsBlocked(dateTimeRange), Is.True);
     }
 
     [Test]
@@ -78,15 +78,15 @@ namespace prac.core.tests.entities
     {
       var resource = new Resource("Bartelsdorf");
       resource.MaxBookings = 1;
-      var timeFrame = new TimeFrame(
+      var dateTimeRange = new DateTimeRange(
         new DateTime(2018, 1, 1, 18, 0, 0),
         new DateTime(2018, 1, 1, 22, 0, 0)
       );
 
-      resource.Book(timeFrame);
+      resource.Book(dateTimeRange);
       
       var exception = Assert.Throws<BookingLimitExceededException>(
-        () => resource.Book(timeFrame));
+        () => resource.Book(dateTimeRange));
     }
   }
 }

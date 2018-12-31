@@ -13,7 +13,7 @@ namespace prac.core.tests
     private DateTime startDate;
     private DateTime endDate;
     private Resource resource;
-    private TimeFrame timeFrame;
+    private DateTimeRange dateTimeRange;
 
     [SetUp]
     public void Setup()
@@ -22,32 +22,32 @@ namespace prac.core.tests
       this.startDate = new DateTime(2018, 1, 1, 18, 0, 0);
       this.endDate = new DateTime(2018, 1, 1, 21, 0, 0);
       this.resource = new Resource("Büchen Süd");
-      this.timeFrame = new TimeFrame(startDate, endDate);
+      this.dateTimeRange = new DateTimeRange(startDate, endDate);
     }
 
     [Test]
     public void Create_a_booking_adds_to_calendar()
     {
-      Scheduler.Create(this.timeFrame, this.resource, this.calendar);
+      Scheduler.Create(this.dateTimeRange, this.resource, this.calendar);
 
       var appointment = calendar.Appointments.First();
-      var timeFrame = appointment.TimeFrame;
+      var dateTimeRange = appointment.DateTimeRange;
 
       Assert.That(appointment.Resource.Name, Is.EqualTo("Büchen Süd"));
       Assert.That(
-        timeFrame.Start.ToString(), Is.EqualTo(this.startDate.ToString()));
+        dateTimeRange.Min.ToString(), Is.EqualTo(this.startDate.ToString()));
       Assert.That(
-        timeFrame.End.ToString(), Is.EqualTo(this.endDate.ToString()));
+        dateTimeRange.Max.ToString(), Is.EqualTo(this.endDate.ToString()));
     }
 
     [Test]
     public void Create_a_booking_blocks_the_resource()
     {
-      Scheduler.Create(this.timeFrame, this.resource, this.calendar);
+      Scheduler.Create(this.dateTimeRange, this.resource, this.calendar);
 
       var appointment = calendar.Appointments.First();
 
-      Assert.That(this.resource.IsBlocked(this.timeFrame), Is.True);
+      Assert.That(this.resource.IsBlocked(this.dateTimeRange), Is.True);
     }
   }
 }

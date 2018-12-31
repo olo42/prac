@@ -6,12 +6,15 @@ namespace prac.core
 {
   public static class Scheduler
   {
-    public static void Create(TimeFrame timeFrame, Resource resource, Calendar calendar)
+    public static void Create(
+      DateTimeRange dateTimeRange, 
+      Resource resource, 
+      Calendar calendar)
     {
-      var appointment = new Appointment(timeFrame, resource);
+      var appointment = new Appointment(dateTimeRange, resource);
 
       calendar.Add(appointment);
-      resource.Block(timeFrame);
+      resource.Block(dateTimeRange);
     }
   }
 }

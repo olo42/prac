@@ -4,26 +4,26 @@ namespace prac.core.entities
 {
   public class Appointment
   {
-    public Appointment(TimeFrame timeFrame, Resource resource)
+    public Appointment(DateTimeRange dateTimeRange, Resource resource)
     {
-      this.TimeFrame = timeFrame;
+      this.DateTimeRange = dateTimeRange;
       this.Resource = resource;
 
     }
     public Resource Resource { get; }
-    public TimeFrame TimeFrame { get; }
+    public DateTimeRange DateTimeRange { get; }
     public DateTime Start
     {
       get
       {
-        return this.TimeFrame.Start;
+        return this.DateTimeRange.Min;
       }
     }
     public DateTime End
     {
       get
       {
-        return this.TimeFrame.End;
+        return this.DateTimeRange.Max;
       }
     }
   }
